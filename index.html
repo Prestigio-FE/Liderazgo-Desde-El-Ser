@@ -2,7 +2,11 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#0D4A5C">
 <title>Programa Liderazgo desde el Ser: Visión Digital y Adaptabilidad | Prestigio × Comfama</title>
 <meta name="description" content="Programa ejecutivo para líderes empresariales. Transforma la incertidumbre en ventaja competitiva y moviliza tu organización desde la consciencia directiva.">
 
@@ -2080,18 +2084,26 @@ html, body {
   /* ── Modales ── */
   .modal-overlay {
     padding: 0 !important;
-    align-items: flex-end;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    overflow-y: hidden !important;
+  }
+  .modal-overlay.open {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    overflow-y: hidden !important;
   }
   .modal-box {
     margin: 0 !important;
     border-radius: 16px 16px 0 0 !important;
     max-height: 90vh;
-    overflow-y: auto;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
     width: 100% !important;
     max-width: 100% !important;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.25) !important;
   }
   .modal-header {
     padding: 20px 20px 16px !important;
@@ -2105,7 +2117,7 @@ html, body {
   .modal-body {
     padding: 20px !important;
     max-height: none !important;
-    overflow-y: visible;
+    overflow-y: visible !important;
   }
 
   /* ── Logística (cronograma modal) ── */
@@ -2173,11 +2185,7 @@ html, body {
   }
 }
 
-/* ── Modal .open override en móvil ── */
-  .modal-overlay.open {
-    align-items: flex-end !important;
-    justify-content: flex-end !important;
-  }
+/* (modal-overlay.open override is inside @media (max-width: 768px) above) */
 
 /* Pantallas muy pequeñas (< 400px) */
 @media (max-width: 400px) {
